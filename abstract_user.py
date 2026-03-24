@@ -9,13 +9,3 @@ class AbstractUser(ABC):
     @abstractmethod
     def akses(self):
         pass
-
-class Admin(AbstractUser):
-
-    def akses(self):
-        return "Akses penuh"
-
-class Staff(AbstractUser):
-
-    def akses(self):
-        return "Akses terbatas"
