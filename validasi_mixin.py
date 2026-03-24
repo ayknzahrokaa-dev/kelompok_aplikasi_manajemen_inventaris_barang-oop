@@ -1,5 +1,8 @@
-from abstract_user import AbstractUser
+class ValidasiMixin:
+    def validasi_stok(self, stok):
+        if stok < 0:
+            raise ValueError("Stok tidak boleh negatif")
 
-class Staff(AbstractUser):
-    def akses(self):
-        return "Akses terbatas"
+    def validasi_harga(self, harga):
+        if harga < 0:
+            raise ValueError("Harga tidak boleh negatif")
