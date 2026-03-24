@@ -1,8 +1,13 @@
-from barang import BarangElektronik, BarangMakanan, BarangPakaian
+from barang_elektronik import BarangElektronik
+from barang_makanan import BarangMakanan
+from barang_pakaian import BarangPakaian
+from barang_masuk import BarangMasuk
+from barang_keluar import BarangKeluar
+from detail_transaksi import DetailTransaksi
 from inventaris import Inventaris
-from transaksi import BarangMasuk, BarangKeluar, DetailTransaksi
-from user import Admin, Staff
 from laporan import Laporan
+from admin import Admin
+from staff import Staff
 
 def main():
     print("=== SISTEM MANAJEMEN INVENTARIS ===")
@@ -62,19 +67,16 @@ def main():
         inv.tampilkan_barang()
 
         print("\n=== TEST ERROR ===")
-
         # untuk stok negatif
         try:
             b1.set_stok(-5)
         except Exception as e:
             print("Error stok:", e)
-
         # ini jika barang tidak ditemukan
         try:
             inv.cari_barang("X99")
         except Exception as e:
             print("Error cari:", e)
-
         # jika stok tidak cukup
         try:
             t3 = BarangKeluar("T03", b1, 999)
@@ -89,7 +91,6 @@ def main():
     laporan = Laporan()
     laporan.laporan_stok([b1, b2, b3])
     laporan.laporan_nilai([b1, b2, b3])
-
 
 if __name__ == "__main__":
     main()
