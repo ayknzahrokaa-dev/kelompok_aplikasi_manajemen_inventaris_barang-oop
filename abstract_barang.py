@@ -43,30 +43,3 @@ class AbstractBarang(ABC, LogMixin, ValidasiMixin):
     @abstractmethod
     def get_info(self):
         pass
-    
-# class BarangElektronik(AbstractBarang, DiskonMixin):
-
-    def __init__(self, id_barang, nama, stok, harga, garansi):
-        super().__init__(id_barang, nama, stok, harga)
-        self.__garansi = garansi
-
-    def get_info(self):
-        return f"Elektronik: {self.get_nama()} | Stok: {self.get_stok()} | Garansi: {self.__garansi}"
-
-class BarangMakanan(AbstractBarang):
-
-    def __init__(self, id_barang, nama, stok, harga, expired):
-        super().__init__(id_barang, nama, stok, harga)
-        self.__expired = expired
-
-    def get_info(self):
-        return f"Makanan: {self.get_nama()} | Expired: {self.__expired}"
-
-class BarangPakaian(AbstractBarang):
-
-    def __init__(self, id_barang, nama, stok, harga, ukuran):
-        super().__init__(id_barang, nama, stok, harga)
-        self.__ukuran = ukuran
-
-    def get_info(self):
-        return f"Pakaian: {self.get_nama()} | Ukuran: {self.__ukuran}"
